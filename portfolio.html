@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Potluri Lalith Chandh — Cloud & Full Stack Developer</title>
+  <meta name="description" content="Hi, I'm Lalith Chandh — a final-year B.Tech student at KL University specialising in Cloud Engineering. I build cloud-native and full-stack apps and I'm actively looking for entry-level software engineering roles." />
+  <meta name="keywords" content="Potluri Lalith Chandh, Cloud Developer, Full Stack Developer, KL University, AWS, GCP, MERN Stack, Software Engineer Vijayawada" />
+  <meta name="author" content="Potluri Lalith Chandh" />
+  <meta property="og:title" content="Potluri Lalith Chandh — Portfolio" />
+  <meta property="og:description" content="Final-year B.Tech student building cloud-native and full-stack applications." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+    :root {
+      --bg: #f7f5f0;
+      --bg2: #eeeae2;
+      --card: #ffffff;
+      --text: #1e1c1a;
+      --muted: #6b6560;
+      --accent: #2d6a9f;
+      --accent-light: #dbeeff;
+      --accent2: #e07b39;
+      --border: #ddd9d0;
+      --radius: 12px;
+      --shadow: 0 2px 16px rgba(0,0,0,0.07);
+    }
+ 
+    html { scroll-behavior: smooth; }
+ 
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+ 
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(247,245,240,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+    .nav-logo {
+      font-family: 'Lora', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.3px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.8rem;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+ 
+    /* SECTIONS */
+    section {
+      padding: 5rem 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    section + section { padding-top: 0; }
+ 
+    .section-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    h1, h2, h3 { font-family: 'Lora', serif; line-height: 1.3; }
+    h2 { font-size: 2rem; margin-bottom: 1rem; }
+    h3 { font-size: 1.2rem; }
+ 
+    /* HOME */
+    #home {
+      min-height: calc(100vh - 60px);
+      display: flex;
+      align-items: center;
+      padding-top: 3rem;
+    }
+    .home-inner {
+      display: flex;
+      align-items: center;
+      gap: 3.5rem;
+      width: 100%;
+    }
+    .home-photo {
+      flex-shrink: 0;
+      width: 190px;
+      height: 190px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--card);
+      box-shadow: 0 4px 24px rgba(45,106,159,0.18);
+      animation: fadeUp 0.8s ease both;
+    }
+    .home-text { animation: fadeUp 0.9s ease 0.1s both; }
+    .home-text .greeting {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+      font-weight: 500;
+    }
+    .home-text h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-bottom: 0.5rem;
+      letter-spacing: -1px;
+    }
+    .home-text h1 span { color: var(--accent); }
+    .tagline {
+      font-size: 1.05rem;
+      color: var(--muted);
+      margin-bottom: 1.2rem;
+      font-style: italic;
+      font-family: 'Lora', serif;
+    }
+    .home-summary {
+      font-size: 0.97rem;
+      color: var(--muted);
+      max-width: 480px;
+      margin-bottom: 1.8rem;
+      line-height: 1.75;
+    }
+    .btn-group { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn {
+      display: inline-block;
+      padding: 0.6rem 1.4rem;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      font-family: 'Nunito', sans-serif;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      border: 2px solid var(--accent);
+    }
+    .btn-primary:hover { background: #245b8a; border-color: #245b8a; }
+    .btn-outline {
+      background: transparent;
+      color: var(--accent);
+      border: 2px solid var(--accent);
+    }
+    .btn-outline:hover { background: var(--accent-light); }
+ 
+    /* DIVIDER */
+    .divider {
+      max-width: 900px;
+      margin: 0 auto;
+      height: 1px;
+      background: var(--border);
+    }
+ 
+    /* ABOUT */
+    #about { padding-top: 5rem; }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
+    .about-text p { color: var(--muted); margin-bottom: 1rem; font-size: 0.97rem; }
+    .about-text p strong { color: var(--text); }
+    .learning-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 1.2rem 1.4rem;
+      font-size: 0.92rem;
+      color: #1a4a70;
+    }
+    .learning-box h4 {
+      font-family: 'Lora', serif;
+      font-size: 1rem;
+      margin-bottom: 0.6rem;
+      font-style: italic;
+    }
+    .learning-box ul { padding-left: 1.2rem; }
+    .learning-box li { margin-bottom: 0.3rem; }
+ 
+    /* SKILLS */
+    #skills { padding-top: 5rem; }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+      margin-top: 1.5rem;
+    }
+    .skill-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.4rem;
+      box-shadow: var(--shadow);
+    }
+    .skill-card h4 {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    .skill-item { margin-bottom: 0.75rem; }
+    .skill-name {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.88rem;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+    .skill-name span:last-child { color: var(--muted); font-size: 0.78rem; }
+    .bar-bg {
+      height: 5px;
+      background: var(--bg2);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%;
+      border-radius: 10px;
+      background: var(--accent);
+      transition: width 1s ease;
+    }
+ 
+    /* PROJECTS */
+    #projects { padding-top: 5rem; }
+    .projects-list { display: flex; flex-direction: column; gap: 1.6rem; margin-top: 1.5rem; }
+    .project-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.8rem;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .project-card:hover {
+      box-shadow: 0 6px 28px rgba(45,106,159,0.13);
+      transform: translateY(-2px);
+    }
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 4px; height: 100%;
+      background: var(--accent);
+      border-radius: 4px 0 0 4px;
+    }
+    .project-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .project-title { font-size: 1.15rem; margin-bottom: 0.2rem; }
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+    .tech-tag {
+      background: var(--accent-light);
+      color: var(--accent);
+      font-size: 0.73rem;
+      font-weight: 600;
+      padding: 0.2rem 0.6rem;
+      border-radius: 20px;
+    }
+    .project-body { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem; }
+    .project-detail-label {
+      font-size: 0.73rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--muted);
+      margin-bottom: 0.3rem;
+    }
+    .project-detail-text { font-size: 0.9rem; color: var(--muted); }
+    .challenge-box {
+      background: #fff8f4;
+      border: 1px solid #f2d4c2;
+      border-radius: 8px;
+      padding: 0.8rem 1rem;
+      font-size: 0.88rem;
+      color: #7a4520;
+      margin-top: 0.6rem;
+    }
+    .challenge-box strong { display: block; margin-bottom: 0.2rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.8px; }
+ 
+    /* RESUME */
+    #resume { padding-top: 5rem; text-align: center; }
+    .resume-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 3rem 2rem;
+      box-shadow: var(--shadow);
+      max-width: 480px;
+      margin: 1.5rem auto 0;
+    }
+    .resume-icon { font-size: 2.5rem; margin-bottom: 0.8rem; }
+    .resume-box p { color: var(--muted); font-size: 0.92rem; margin-bottom: 1.5rem; }
+ 
+    /* CONTACT */
+    #contact { padding-top: 5rem; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; margin-top: 1.5rem; }
+    .contact-links { display: flex; flex-direction: column; gap: 1rem; }
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      text-decoration: none;
+      color: var(--text);
+      font-size: 0.95rem;
+      font-weight: 500;
+      padding: 0.9rem 1.1rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition: all 0.2s;
+    }
+    .contact-link:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-light); }
+    .contact-link .icon {
+      width: 34px; height: 34px;
+      background: var(--bg2);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .contact-form { display: flex; flex-direction: column; gap: 0.9rem; }
+    .contact-form input,
+    .contact-form textarea {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.92rem;
+      color: var(--text);
+      transition: border-color 0.2s;
+      outline: none;
+      resize: vertical;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus { border-color: var(--accent); }
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder { color: #aaa; }
+    .contact-form textarea { min-height: 110px; }
+    .form-note { font-size: 0.78rem; color: var(--muted); }
+ 
+    /* FOOTER */
+    footer {
+      background: var(--text);
+      color: #b0aca6;
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.88rem;
+      margin-top: 3rem;
+    }
+    footer a { color: #7bafd4; text-decoration: none; }
+ 
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+ 
+    /* MOBILE */
+    @media (max-width: 700px) {
+      nav { padding: 0 1.2rem; }
+      .nav-links {
+        display: none;
+        position: fixed;
+        inset: 60px 0 0 0;
+        background: var(--bg);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { font-size: 1.1rem; }
+      .hamburger { display: flex; }
+      section { padding: 4rem 1.3rem; }
+      .home-inner { flex-direction: column; gap: 1.8rem; text-align: center; }
+      .home-photo { width: 140px; height: 140px; }
+      .home-summary { max-width: 100%; margin: 0 auto 1.5rem; }
+      .btn-group { justify-content: center; }
+      .about-grid { grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .project-body { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      h2 { font-size: 1.6rem; }
+    }
+  </style>
+</head>
+<body>
+ 
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#home">LC.</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#resume">Resume</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+ 
+<!-- HOME -->
+<section id="home">
+  <div class="home-inner">
+    <img
+      class="home-photo"
+      src="lalithphoto123.jpeg"
+      alt="Potluri Lalith Chandh"
+    />
+    <div class="home-text">
+      <p class="greeting">Hey, I'm</p>
+      <h1>Potluri <span>Lalith Chandh</span></h1>
+      <p class="tagline">Building things in the cloud — one bug at a time.</p>
+      <p class="home-summary">
+        Final-year B.Tech student at KL University (Cloud Engineering), Vijayawada.
+        I work with AWS, GCP, and the MERN stack. Not an expert at everything —
+        but I pick things up fast, enjoy figuring out how systems actually work,
+        and I'm looking for my first full-time role in software engineering.
+      </p>
+      <div class="btn-group">
+        <a href="#projects" class="btn btn-primary">See my projects</a>
+        <a href="#contact" class="btn btn-outline">Get in touch</a>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<div class="divider"></div>
+ 
+<!-- ABOUT -->
+<section id="about">
+  <p class="section-label reveal">About Me</p>
+  <h2 class="reveal">A bit about who I am</h2>
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <p>
+        I'm in my final year of B.Tech in Computer Science (Cloud Engineering) at
+        <strong>KL University, Vijayawada</strong>, graduating in 2027. I've maintained a
+        <strong>9.24 CGPA</strong> — not because I'm trying to flex, but because I genuinely
+        find this stuff interesting.
+      </p>
+      <p>
+        I got into cloud computing during my second year and haven't stopped since.
+        My first AWS project was a mess — I didn't understand IAM at all and kept
+        getting permission errors. But working through that taught me more than any
+        tutorial. I learn best by breaking things and piecing them back together.
+      </p>
+      <p>
+        Outside of tech, I'm fairly low-key — I like understanding how large-scale
+        systems work and occasionally spend way too long reading AWS architecture blogs.
+      </p>
+      <p>
+        I'm actively looking for <strong>entry-level software or cloud engineering roles</strong>.
+        I won't pretend I know everything, but I'll show up, learn fast, and contribute.
+      </p>
+    </div>
+    <div class="reveal">
+      <div class="learning-box">
+        <h4>📚 Things I'm currently learning</h4>
+        <ul>
+          <li>Docker & container basics</li>
+          <li>Kubernetes (started recently, still early)</li>
+          <li>System design fundamentals</li>
+          <li>TypeScript (switching from plain JS)</li>
+          <li>DSA practice — Leetcode, slowly but surely</li>
+        </ul>
+      </div>
+      <br/>
+      <div class="skill-card" style="margin-top:0">
+        <h4>Quick stats</h4>
+        <div style="font-size:0.9rem; color:var(--muted); display:flex; flex-direction:column; gap:0.5rem;">
+          <span>🎓 KL University — Cloud Engineering</span>
+          <span>📍 Vijayawada, Andhra Pradesh</span>
+          <span>🎯 Graduating 2027</span>
+          <span>☁️ AWS + GCP certified tracks</span>
+          <span>💼 Open to entry-level roles</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<div class="divider"></div>
+ 
+<!-- SKILLS -->
+<section id="skills">
+  <p class="section-label reveal">Skills</p>
+  <h2 class="reveal">What I actually know</h2>
+  <p class="reveal" style="color:var(--muted); font-size:0.93rem; margin-bottom:0; margin-top:-0.5rem;">
+    Honest skill levels — not "proficient in everything".
+  </p>
+  <div class="skills-grid">
+ 
+    <div class="skill-card reveal">
+      <h4>☁️ Cloud</h4>
+      <div class="skill-item">
+        <div class="skill-name"><span>AWS (EC2, S3, Lambda)</span><span>Comfortable</span></div>
+        <div class="bar-bg"><div class="bar-fill" style="width:72%"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-name"><span>GCP (Compute, Functions)</span><span>Comfortable</span></div>
+        <div class="bar-bg"><div class="bar-fill" style="width:65%"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-name"><span>IAM & Security</span><span>Getting there</span></div>
+        <div class="bar-bg"><div class="bar-fill" style="width:55%"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-name"><span>Docker / K8s</span><span>Learning</span></div>
+        <div class="bar-bg"><div class="bar-fill" style="width:25%"></div></div>
+      </div>
+    </div>
+ 
+    <div class="skill-card reveal">
+      <h4>🖥️ Full Stack</h4>
+      <div class="skill-item">
+        <div class="skill-name"><span>React.js</span><span>Good</span></div>
+        <div class="bar-bg"><div class="bar-fill" style="width:68%"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-name"><span>Node.js / Express</span><span>Good</span></div>
+        <div class="bar-bg"><div class="bar-fill" style="width:65%"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-name"><span>MongoDB</span><span>Good</span></div>
+        <div class="bar-bg"><div class="bar-fill" style="width:62%"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-name"><span>HTML / CSS</span><span>Solid</span></div>
+        <div class="bar-bg"><div class="bar-fill" style="width:78%"></div></div>
+      </div>
+    </div>
+ 
+    <div class="skill-card reveal">
+      <h4>🔧 Languages & Tools</h4>
+      <div class="skill-item">
+        <div class="skill-name"><span>Java</span><span>Comfortable</span></div>
+        <div class="bar-bg"><div class="bar-fill" style="width:70%"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-name"><span>JavaScript</span><span>Good</span></div>
+        <div class="bar-bg"><div class="bar-fill" style="width:70%"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-name"><span>Python</span><span>Basic</span></div>
+        <div class="bar-bg"><div class="bar-fill" style="width:38%"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-name"><span>Git / Linux</span><span>Regular use</span></div>
+        <div class="bar-bg"><div class="bar-fill" style="width:66%"></div></div>
+      </div>
+    </div>
+ 
+  </div>
+</section>
+ 
+<div class="divider"></div>
+ 
+<!-- PROJECTS -->
+<section id="projects">
+  <p class="section-label reveal">Projects</p>
+  <h2 class="reveal">Things I've built</h2>
+  <p class="reveal" style="color:var(--muted); font-size:0.93rem; margin-bottom:0; margin-top:-0.5rem;">
+    Real projects — with the honest wins and the parts that were genuinely hard.
+  </p>
+  <div class="projects-list">
+ 
+    <!-- PROJECT 1 -->
+    <div class="project-card reveal">
+      <div class="project-header">
+        <div>
+          <h3 class="project-title">Website Uptime & Latency Tracker</h3>
+          <p style="color:var(--muted); font-size:0.85rem;">Aug 2025 – Present · Google Cloud Platform</p>
+        </div>
+        <div class="project-tech">
+          <span class="tech-tag">GCP</span>
+          <span class="tech-tag">Compute Engine</span>
+          <span class="tech-tag">Cloud Functions</span>
+          <span class="tech-tag">Cloud Monitoring</span>
+        </div>
+      </div>
+      <div class="project-body">
+        <div>
+          <p class="project-detail-label">The problem</p>
+          <p class="project-detail-text">
+            I wanted to understand how production monitoring systems work — something that tells you when a website goes down before users start complaining about it.
+          </p>
+        </div>
+        <div>
+          <p class="project-detail-label">What I built</p>
+          <p class="project-detail-text">
+            A cloud-based system that polls websites at regular intervals, checks response times, and fires automated alerts through GCP Cloud Monitoring when something looks off. Tracked uptime at 99.9% accuracy across test sites.
+          </p>
+        </div>
+        <div>
+          <p class="project-detail-label">What I learned</p>
+          <p class="project-detail-text">
+            GCP's IAM roles are tricky to get right. Also learned a lot about how latency varies across regions and why health checks need proper timeout settings.
+          </p>
+        </div>
+        <div>
+          <div class="challenge-box">
+            <strong>⚠️ Hardest part</strong>
+            Getting Cloud Functions to trigger reliably on a schedule without incurring unexpected costs. Took a few iterations to configure it properly.
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+    <!-- PROJECT 2 -->
+    <div class="project-card reveal">
+      <div class="project-header">
+        <div>
+          <h3 class="project-title">Serverless Contact Form & Enquiry System</h3>
+          <p style="color:var(--muted); font-size:0.85rem;">Dec 2025 – Jan 2026 · Amazon Web Services</p>
+        </div>
+        <div class="project-tech">
+          <span class="tech-tag">AWS Lambda</span>
+          <span class="tech-tag">API Gateway</span>
+          <span class="tech-tag">DynamoDB</span>
+          <span class="tech-tag">SES</span>
+        </div>
+      </div>
+      <div class="project-body">
+        <div>
+          <p class="project-detail-label">The problem</p>
+          <p class="project-detail-text">
+            Most contact form solutions either need a server running 24/7 or rely on third-party services. I wanted to build one that's fully serverless, cheap, and actually scales.
+          </p>
+        </div>
+        <div>
+          <p class="project-detail-label">What I built</p>
+          <p class="project-detail-text">
+            An end-to-end serverless flow — form submission → API Gateway → Lambda processes it → stores in DynamoDB → triggers an email notification. No server to manage, no idle cost.
+          </p>
+        </div>
+        <div>
+          <p class="project-detail-label">What I learned</p>
+          <p class="project-detail-text">
+            Serverless sounds easy until you're debugging cold starts and CORS issues at 11pm. Learned how Lambda execution roles work and why API Gateway needs careful configuration.
+          </p>
+        </div>
+        <div>
+          <div class="challenge-box">
+            <strong>⚠️ Hardest part</strong>
+            Debugging CORS errors between the frontend and API Gateway — the error messages aren't always helpful. Stack Overflow saved me more than once here.
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+    <!-- PROJECT 3 -->
+    <div class="project-card reveal">
+      <div class="project-header">
+        <div>
+          <h3 class="project-title">Employee Training & Onboarding System</h3>
+          <p style="color:var(--muted); font-size:0.85rem;">Mar 2025 – Jun 2025 · MERN Stack</p>
+        </div>
+        <div class="project-tech">
+          <span class="tech-tag">MongoDB</span>
+          <span class="tech-tag">Express.js</span>
+          <span class="tech-tag">React.js</span>
+          <span class="tech-tag">Node.js</span>
+        </div>
+      </div>
+      <div class="project-body">
+        <div>
+          <p class="project-detail-label">The problem</p>
+          <p class="project-detail-text">
+            Wanted to build something real with the MERN stack — not just a todo app. Employee onboarding felt like a good domain because it has authentication, roles, and actual data to manage.
+          </p>
+        </div>
+        <div>
+          <p class="project-detail-label">What I built</p>
+          <p class="project-detail-text">
+            A full-stack web app where admins can create training modules and employees can track their progress. Includes JWT authentication, a course management dashboard, and progress tracking per employee.
+          </p>
+        </div>
+        <div>
+          <p class="project-detail-label">What I learned</p>
+          <p class="project-detail-text">
+            This was my first time handling JWT properly — and I definitely made some security mistakes early on (storing tokens in localStorage without thinking). Good lesson in not copying code blindly.
+          </p>
+        </div>
+        <div>
+          <div class="challenge-box">
+            <strong>⚠️ Hardest part</strong>
+            Managing state across the React frontend when user roles changed mid-session. Took a redesign of the auth flow to get it working reliably.
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+  </div>
+</section>
+ 
+<div class="divider"></div>
+ 
+<!-- RESUME -->
+<section id="resume">
+  <p class="section-label reveal">Resume</p>
+  <h2 class="reveal">Download my CV</h2>
+  <div class="resume-box reveal">
+    <div class="resume-icon">📄</div>
+    <p>
+      One-page resume with my experience, projects, certifications, and education.
+      Updated as of 2025. PDF format.
+    </p>
+    <a href="Lalith_Chandh_Resume.pdf" download class="btn btn-primary" style="font-size:0.95rem; padding:0.75rem 2rem;">
+      ⬇ Download Resume
+    </a>
+  </div>
+</section>
+ 
+<div class="divider"></div>
+ 
+<!-- CONTACT -->
+<section id="contact">
+  <p class="section-label reveal">Contact</p>
+  <h2 class="reveal">Let's talk</h2>
+  <p class="reveal" style="color:var(--muted); font-size:0.93rem; margin-bottom:0; margin-top:-0.5rem;">
+    Whether it's a job opportunity, a question, or just saying hi — I'll reply.
+  </p>
+  <div class="contact-grid">
+    <div class="contact-links reveal">
+      <a class="contact-link" href="mailto:potlurilalith11@gmail.com">
+        <span class="icon">✉️</span>
+        potlurilalith11@gmail.com
+      </a>
+      <a class="contact-link" href="https://www.linkedin.com/in/potluri-lalith-chandh-a008632a9" target="_blank" rel="noopener">
+        <span class="icon">🔗</span>
+        LinkedIn — Let's connect
+      </a>
+      <a class="contact-link" href="https://github.com/PotluriLalith" target="_blank" rel="noopener">
+        <span class="icon">🐙</span>
+        GitHub — See my code
+      </a>
+    </div>
+    <div class="reveal">
+      <div class="contact-form">
+        <input type="text" id="cf-name" placeholder="Your name" />
+        <input type="email" id="cf-email" placeholder="Your email" />
+        <textarea id="cf-msg" placeholder="What's on your mind?"></textarea>
+        <button class="btn btn-primary" onclick="sendMail()" style="width:100%; padding:0.75rem;">Send message</button>
+        <p class="form-note">This opens your mail client with the message pre-filled.</p>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- FOOTER -->
+<footer>
+  <p>Designed & built by me, Lalith Chandh &mdash; still improving&nbsp;:)</p>
+  <p style="margin-top:0.5rem; font-size:0.8rem;">
+    <a href="https://github.com/PotluriLalith">GitHub</a> &nbsp;·&nbsp;
+    <a href="https://www.linkedin.com/in/potluri-lalith-chandh-a008632a9">LinkedIn</a> &nbsp;·&nbsp;
+    <a href="mailto:potlurilalith11@gmail.com">Email</a>
+  </p>
+  <p style="margin-top:0.8rem; font-size:0.78rem; opacity:0.5;">© 2025 Potluri Lalith Chandh · Vijayawada, India</p>
+</footer>
+ 
+<script>
+  // Hamburger
+  const ham = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  ham.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+ 
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 60);
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+ 
+  // Contact form
+  function sendMail() {
+    const name = document.getElementById('cf-name').value.trim();
+    const email = document.getElementById('cf-email').value.trim();
+    const msg = document.getElementById('cf-msg').value.trim();
+    if (!name || !msg) { alert('Please fill in your name and message.'); return; }
+    const subject = encodeURIComponent('Message from ' + name);
+    const body = encodeURIComponent(msg + '\n\nFrom: ' + name + (email ? ' <' + email + '>' : ''));
+    window.location.href = 'mailto:potlurilalith11@gmail.com?subject=' + subject + '&body=' + body;
+  }
+ 
+  // Active nav highlight
+  const sections = document.querySelectorAll('section[id]');
+  const navAs = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 80) current = s.id; });
+    navAs.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--accent)' : '';
+    });
+  });
+</script>
+ 
+</body>
+</html>
